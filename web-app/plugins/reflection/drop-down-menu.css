@@ -1,0 +1,158 @@
+/**
+ * Created by hoshen.mahmud on 11-Nov-16.
+ */
+/*======================================================================================================================================================*/
+/*      Drop Down Menu                                                                                                                                      */
+/*======================================================================================================================================================*/
+.dropDownMenu {
+    padding: 0;
+    margin: 0;
+    border: 0;
+    width: auto;
+    font-size: 14px;
+}
+
+.dropDownMenu:after,
+.dropDownMenu ul:after {
+    content: '';
+    display: block;
+    clear: both;
+}
+
+.dropDownMenu ul,
+.dropDownMenu li {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.dropDownMenu ul {
+    position: relative;
+    z-index: 597;
+}
+
+.dropDownMenu > ul {
+    *display: inline-block;
+}
+
+.dropDownMenu ul li ul a {
+    background: #333;
+    color: #CBCBCB;
+    line-height: 1em;
+}
+
+.dropDownMenu a {
+    padding: 0 20px;
+    display: block;
+    text-decoration: none;
+}
+
+.dropDownMenu ul ul {
+    left: 0;
+    top: 100%;
+    bottom: 0;
+    width: 100%;
+    z-index: 598;
+    visibility: hidden;
+    position: absolute;
+    margin-top: 0;
+    border-top: 4px solid #0b5394;
+    text-transform: none;
+    min-width: 190px;
+}
+
+.dropDownMenu ul li {
+    float: left;
+    min-height: 1px;
+    vertical-align: middle;
+}
+
+.dropDownMenu ul li.hover,
+.dropDownMenu ul li:hover {
+    position: relative;
+    z-index: 599;
+    cursor: default;
+}
+
+.dropDownMenu ul li:hover > ul {
+    visibility: visible;
+}
+
+.dropDownMenu ul li:hover > a,
+.dropDownMenu ul li.active > a {
+    background: #0b5394;
+    color: #ffffff;
+}
+
+.dropDownMenu ul ul a {
+    background: #0b5394;
+    color: #ffffff;
+    border: 1px solid #073865;
+    border-top: 0 none;
+    line-height: 100%;
+    padding: 16px 20px;
+    font-size: 14px;
+}
+
+.dropDownMenu ul ul ul {
+    top: 0;
+    left: 190px;
+    width: 190px;
+    border-top: 0 none;
+}
+
+.dropDownMenu ul ul li {
+    float: none;
+    position: relative;
+    font-weight: normal;
+}
+
+.dropDownMenu ul ul li:first-child > a {
+    border-top: 1px solid #073865;
+}
+
+.dropDownMenu ul ul li:hover > a {
+    background: #0f6ec3;
+    color: #ffffff;
+}
+
+.dropDownMenu ul li.last ul {
+    left: auto;
+    right: 0;
+}
+
+.dropDownMenu ul li.last ul ul {
+    left: auto;
+    right: 99.5%;
+}
+
+.dropDownMenu > ul > li > a {
+    line-height: 18px;
+    font-size: 14px;
+}
+
+.dropDownMenu > ul > li > a > span {
+    display: none;
+}
+
+.dropDownMenu ul ul li:last-child > a {
+    -moz-border-radius: 0 0 3px 3px;
+    -webkit-border-radius: 0 0 3px 3px;
+    border-radius: 0 0 3px 3px;
+    -moz-background-clip: padding;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+    -moz-box-shadow: 0 1px 0 #0b5394;
+    -webkit-box-shadow: 0 1px 0 #0b5394;
+    box-shadow: 0 1px 0 #0b5394;
+}
+
+.dropDownMenu ul ul li:last-child:hover > a {
+    -moz-border-radius: 0 0 0 3px;
+    -webkit-border-radius: 0 0 0 3px;
+    border-radius: 0 0 0 3px;
+    -moz-background-clip: padding;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+}
+/*======================================================================================================================================================*/
