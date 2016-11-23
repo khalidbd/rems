@@ -43,4 +43,4 @@ Thumbs.db
 #################
 /local.properties
 *.iml
-/,idea
+.idea/
