@@ -8,8 +8,10 @@ import grails.transaction.Transactional
 @Transactional(readOnly = true)
 class UserController {
 
+    def springSecurityService;
+
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
-    def springSecurityService
+
     def index(Integer max) {
         params.max = Math.min(max ?: 10, 100)
         respond User.list(params), model:[userInstanceCount: User.count()]
@@ -29,6 +31,9 @@ class UserController {
             notFound()
             return
         }
+
+        userInstance.createdBy = springSecurityService.getCurrentUser().id;
+        userInstance.validate();
 
         if (userInstance.hasErrors()) {
             respond userInstance.errors, view:'create'
@@ -57,7 +62,9 @@ class UserController {
             return
         }
 
-        userInstance.password = springSecurityService.encodePassword(params.password)
+        userInstance.modifiedBy = springSecurityService.getCurrentUser().id;
+        userInstance.dateModified = new Date();
+        userInstance.validate();
 
         if (userInstance.hasErrors()) {
             respond userInstance.errors, view:'edit'

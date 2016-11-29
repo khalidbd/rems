@@ -23,6 +23,33 @@
 			</g:if>
 			<ol class="property-list user">
 			
+				<g:if test="${userInstance?.fullName}">
+				<li class="fieldcontain">
+					<span id="fullName-label" class="property-label"><g:message code="user.fullName.label" default="Full Name" /></span>
+					
+						<span class="property-value" aria-labelledby="fullName-label"><g:fieldValue bean="${userInstance}" field="fullName"/></span>
+					
+				</li>
+				</g:if>
+			
+				<g:if test="${userInstance?.displayName}">
+				<li class="fieldcontain">
+					<span id="displayName-label" class="property-label"><g:message code="user.displayName.label" default="Display Name" /></span>
+					
+						<span class="property-value" aria-labelledby="displayName-label"><g:fieldValue bean="${userInstance}" field="displayName"/></span>
+					
+				</li>
+				</g:if>
+			
+				%{--<g:if test="${userInstance?.password}">
+				<li class="fieldcontain">
+					<span id="password-label" class="property-label"><g:message code="user.password.label" default="Password" /></span>
+					
+						<span class="property-value" aria-labelledby="password-label"><g:fieldValue bean="${userInstance}" field="password"/></span>
+					
+				</li>
+				</g:if>--}%
+			
 				<g:if test="${userInstance?.username}">
 				<li class="fieldcontain">
 					<span id="username-label" class="property-label"><g:message code="user.username.label" default="Username" /></span>
@@ -32,11 +59,38 @@
 				</li>
 				</g:if>
 			
-				<g:if test="${userInstance?.password}">
+				<g:if test="${userInstance?.phone}">
 				<li class="fieldcontain">
-					<span id="password-label" class="property-label"><g:message code="user.password.label" default="Password" /></span>
+					<span id="phone-label" class="property-label"><g:message code="user.phone.label" default="Phone" /></span>
 					
-						<span class="property-value" aria-labelledby="password-label"><g:fieldValue bean="${userInstance}" field="password"/></span>
+						<span class="property-value" aria-labelledby="phone-label"><g:fieldValue bean="${userInstance}" field="phone"/></span>
+					
+				</li>
+				</g:if>
+			
+				<g:if test="${userInstance?.email}">
+				<li class="fieldcontain">
+					<span id="email-label" class="property-label"><g:message code="user.email.label" default="Email" /></span>
+					
+						<span class="property-value" aria-labelledby="email-label"><g:fieldValue bean="${userInstance}" field="email"/></span>
+					
+				</li>
+				</g:if>
+			
+				<g:if test="${userInstance?.signature}">
+				<li class="fieldcontain">
+					<span id="signature-label" class="property-label"><g:message code="user.signature.label" default="Signature" /></span>
+					
+						<span class="property-value" aria-labelledby="signature-label"><g:fieldValue bean="${userInstance}" field="signature"/></span>
+					
+				</li>
+				</g:if>
+			
+				<g:if test="${userInstance?.userImage}">
+				<li class="fieldcontain">
+					<span id="userImage-label" class="property-label"><g:message code="user.userImage.label" default="User Image" /></span>
+					
+						<span class="property-value" aria-labelledby="userImage-label"><g:fieldValue bean="${userInstance}" field="userImage"/></span>
 					
 				</li>
 				</g:if>

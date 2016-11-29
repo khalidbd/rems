@@ -5,44 +5,54 @@ import groovy.transform.ToString
 import org.apache.commons.lang.builder.HashCodeBuilder
 import org.springframework.http.HttpMethod
 
-@ToString(cache=true, includeNames=true, includePackage=false)
+@ToString(cache = true, includeNames = true, includePackage = false)
 class RequestMap implements Serializable {
 
-	private static final long serialVersionUID = 1
+    private static final long serialVersionUID = 1
 
-	String configAttribute
-	HttpMethod httpMethod
-	String url
+    HttpMethod httpMethod;
+    User       createdBy,
+               modifiedBy;
 
-	RequestMap(String url, String configAttribute, HttpMethod httpMethod = null) {
-		this()
-		this.configAttribute = configAttribute
-		this.httpMethod = httpMethod
-		this.url = url
-	}
+    String     url,
+               configAttribute;
+    Date       dateCreated,
+               dateModified;
 
-	@Override
-	int hashCode() {
-		new HashCodeBuilder().append(configAttribute).append(httpMethod).append(url).toHashCode()
-	}
+    RequestMap(String url, String configAttribute, HttpMethod httpMethod = null) {
+//        this()
+        this.configAttribute = configAttribute
+        this.httpMethod = httpMethod
+        this.url = url
+    }
 
-	@Override
-	boolean equals(other) {
-		is(other) || (
-			other instanceof RequestMap &&
-			other.configAttribute == configAttribute &&
-			other.httpMethod == httpMethod &&
-			other.url == url)
-	}
+    @Override
+    int hashCode() {
+        new HashCodeBuilder().append(configAttribute).append(httpMethod).append(url).toHashCode()
+    }
 
-	static constraints = {
-		configAttribute blank: false
-		httpMethod nullable: true
-		url blank: false, unique: 'httpMethod'
-	}
+    @Override
+    boolean equals(other) {
+        is(other) || (
+                other instanceof RequestMap &&
+                        other.configAttribute == configAttribute &&
+                        other.httpMethod == httpMethod &&
+                        other.url == url)
+    }
 
-	static mapping = {
-		table	 'AUTH_REQUEST_MAP'
-		cache true
-	}
+    static constraints = {
+        configAttribute nullable: false
+        createdBy       nullable: false
+        dateCreated     nullable: false
+        url             nullable: false, unique: 'httpMethod'
+
+        httpMethod      nullable: true
+        modifiedBy      nullable: true
+        dateModified    nullable: true
+    }
+
+    static mapping = {
+        table    'AUTH_REQUEST_MAP'
+        cache true
+    }
 }

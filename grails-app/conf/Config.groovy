@@ -16,19 +16,19 @@ grails.project.groupId = appName // change this to alter the default package nam
 // The ACCEPT header will not be used for content negotiation for user agents containing the following strings (defaults to the 4 major rendering engines)
 grails.mime.disable.accept.header.userAgents = ['Gecko', 'WebKit', 'Presto', 'Trident']
 grails.mime.types = [ // the first one is the default format
-    all:           '*/*', // 'all' maps to '*' or the first available format in withFormat
-    atom:          'application/atom+xml',
-    css:           'text/css',
-    csv:           'text/csv',
-    form:          'application/x-www-form-urlencoded',
-    html:          ['text/html','application/xhtml+xml'],
-    js:            'text/javascript',
-    json:          ['application/json', 'text/json'],
-    multipartForm: 'multipart/form-data',
-    rss:           'application/rss+xml',
-    text:          'text/plain',
-    hal:           ['application/hal+json','application/hal+xml'],
-    xml:           ['text/xml', 'application/xml']
+                      all          : '*/*', // 'all' maps to '*' or the first available format in withFormat
+                      atom         : 'application/atom+xml',
+                      css          : 'text/css',
+                      csv          : 'text/csv',
+                      form         : 'application/x-www-form-urlencoded',
+                      html         : ['text/html', 'application/xhtml+xml'],
+                      js           : 'text/javascript',
+                      json         : ['application/json', 'text/json'],
+                      multipartForm: 'multipart/form-data',
+                      rss          : 'application/rss+xml',
+                      text         : 'text/plain',
+                      hal          : ['application/hal+json', 'application/hal+xml'],
+                      xml          : ['text/xml', 'application/xml']
 ]
 
 // URL Mapping Cache Max Size, defaults to 5000
@@ -71,7 +71,7 @@ grails.enable.native2ascii = true
 // packages to include in Spring bean scanning
 grails.spring.bean.packages = []
 // whether to disable processing of multi part requests
-grails.web.disable.multipart=false
+grails.web.disable.multipart = false
 
 // request parameters to mask when logging exceptions
 grails.exceptionresolver.params.exclude = ['password']
@@ -84,6 +84,8 @@ grails.hibernate.cache.queries = false
 grails.hibernate.pass.readonly = false
 // configure passing read-only to OSIV session by default, requires "singleSession = false" OSIV mode
 grails.hibernate.osiv.readonly = false
+
+format.dtp.date = 'dd/MM/yyyy'
 
 environments {
     development {
@@ -103,35 +105,39 @@ log4j.main = {
     //    console name:'stdout', layout:pattern(conversionPattern: '%c{2} %m%n')
     //}
 
-    error  'org.codehaus.groovy.grails.web.servlet',        // controllers
-           'org.codehaus.groovy.grails.web.pages',          // GSP
-           'org.codehaus.groovy.grails.web.sitemesh',       // layouts
-           'org.codehaus.groovy.grails.web.mapping.filter', // URL mapping
-           'org.codehaus.groovy.grails.web.mapping',        // URL mapping
-           'org.codehaus.groovy.grails.commons',            // core / classloading
-           'org.codehaus.groovy.grails.plugins',            // plugins
-           'org.codehaus.groovy.grails.orm.hibernate',      // hibernate integration
-           'org.springframework',
-           'org.hibernate',
-           'net.sf.ehcache.hibernate'
+    error 'org.codehaus.groovy.grails.web.servlet',          // controllers
+            'org.codehaus.groovy.grails.web.pages',          // GSP
+            'org.codehaus.groovy.grails.web.sitemesh',       // layouts
+            'org.codehaus.groovy.grails.web.mapping.filter', // URL mapping
+            'org.codehaus.groovy.grails.web.mapping',        // URL mapping
+            'org.codehaus.groovy.grails.commons',            // core / classloading
+            'org.codehaus.groovy.grails.plugins',            // plugins
+            'org.codehaus.groovy.grails.orm.hibernate',      // hibernate integration
+            'org.springframework',
+            'org.hibernate',
+            'net.sf.ehcache.hibernate'
+    info 'grails.plugin.springsecurity.web.filter.DebugFilter'  //to see what the plugin(Spring Security Core) is doing
 }
 
-
 // Added by the Spring Security Core plugin:
-grails.plugin.springsecurity.active = true // True or False for active spring security plugin
-grails.plugin.springsecurity.logout.postOnly = false // True or False for active spring security plugin
+grails.plugin.springsecurity.active = true;
+grails.plugin.springsecurity.logout.postOnly = false
+grails.plugin.springsecurity.rejectIfNoRule = true
+grails.plugin.springsecurity.debug.useFilter = true //to see what the plugin is doing or debugging
+//grails.plugin.springsecurity.useSecurityEventListener = true
 grails.plugin.springsecurity.userLookup.userDomainClassName = 'auth.User'
-grails.plugin.springsecurity.userLookup.authorityJoinClassName = 'auth.UserRole'
 grails.plugin.springsecurity.authority.className = 'auth.Role'
+grails.plugin.springsecurity.userLookup.authorityJoinClassName = 'auth.UserRole'
 grails.plugin.springsecurity.requestMap.className = 'auth.RequestMap'
 grails.plugin.springsecurity.securityConfigType = 'Requestmap'
 //grails.plugin.springsecurity.controllerAnnotations.staticRules = [
-//	'/':                ['permitAll'],
-//	'/index':           ['permitAll'],
-//	'/index.gsp':       ['permitAll'],
-//	'/assets/**':       ['permitAll'],
-//	'/**/js/**':        ['permitAll'],
-//	'/**/css/**':       ['permitAll'],
-//	'/**/images/**':    ['permitAll'],
-//	'/**/favicon.ico':  ['permitAll']
+//        '/'              : ['permitAll'],
+//        '/index'         : ['permitAll'],
+//        '/index.gsp'     : ['permitAll'],
+//        '/assets/**'     : ['permitAll'],
+//        '/**/js/**'      : ['permitAll'],
+//        '/**/css/**'     : ['permitAll'],
+//        '/**/images/**'  : ['permitAll'],
+//        '/**/favicon.ico': ['permitAll']
 //]
+

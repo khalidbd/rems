@@ -2,12 +2,21 @@
 
 
 
-<div class="fieldcontain ${hasErrors(bean: userInstance, field: 'username', 'error')} required">
-	<label for="username">
-		<g:message code="user.username.label" default="Username" />
+<div class="fieldcontain ${hasErrors(bean: userInstance, field: 'fullName', 'error')} required">
+	<label for="fullName">
+		<g:message code="user.fullName.label" default="Full Name" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:textField name="username" required="" value="${userInstance?.username}"/>
+	<g:textField name="fullName" required="" value="${userInstance?.fullName}"/>
+
+</div>
+
+<div class="fieldcontain ${hasErrors(bean: userInstance, field: 'displayName', 'error')} required">
+	<label for="displayName">
+		<g:message code="user.displayName.label" default="Display Name" />
+		<span class="required-indicator">*</span>
+	</label>
+	<g:textField name="displayName" required="" value="${userInstance?.displayName}"/>
 
 </div>
 
@@ -17,6 +26,51 @@
 		<span class="required-indicator">*</span>
 	</label>
 	<g:textField name="password" required="" value="${userInstance?.password}"/>
+
+</div>
+
+<div class="fieldcontain ${hasErrors(bean: userInstance, field: 'username', 'error')} required">
+	<label for="username">
+		<g:message code="user.username.label" default="Username" />
+		<span class="required-indicator">*</span>
+	</label>
+	<g:textField name="username" required="" value="${userInstance?.username}"/>
+
+</div>
+
+<div class="fieldcontain ${hasErrors(bean: userInstance, field: 'phone', 'error')} ">
+	<label for="phone">
+		<g:message code="user.phone.label" default="Phone" />
+		
+	</label>
+	<g:textField name="phone" value="${userInstance?.phone}"/>
+
+</div>
+
+<div class="fieldcontain ${hasErrors(bean: userInstance, field: 'email', 'error')} ">
+	<label for="email">
+		<g:message code="user.email.label" default="Email" />
+		
+	</label>
+	<g:field type="email" name="email" value="${userInstance?.email}"/>
+
+</div>
+
+<div class="fieldcontain ${hasErrors(bean: userInstance, field: 'signature', 'error')} ">
+	<label for="signature">
+		<g:message code="user.signature.label" default="Signature" />
+		
+	</label>
+	<g:textField name="signature" value="${userInstance?.signature}"/>
+
+</div>
+
+<div class="fieldcontain ${hasErrors(bean: userInstance, field: 'userImage', 'error')} ">
+	<label for="userImage">
+		<g:message code="user.userImage.label" default="User Image" />
+		
+	</label>
+	<g:textField name="userImage" value="${userInstance?.userImage}"/>
 
 </div>
 
