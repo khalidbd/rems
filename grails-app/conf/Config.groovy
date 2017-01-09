@@ -123,7 +123,7 @@ log4j.main = {
 grails.plugin.springsecurity.active = true;
 grails.plugin.springsecurity.logout.postOnly = false
 grails.plugin.springsecurity.rejectIfNoRule = true
-grails.plugin.springsecurity.debug.useFilter = true //to see what the plugin is doing or debugging
+grails.plugin.springsecurity.debug.useFilter = false //to see what the plugin is doing or debugging
 //grails.plugin.springsecurity.useSecurityEventListener = true
 grails.plugin.springsecurity.userLookup.userDomainClassName = 'auth.User'
 grails.plugin.springsecurity.authority.className = 'auth.Role'
@@ -133,7 +133,7 @@ grails.plugin.springsecurity.securityConfigType = 'Requestmap'
 //grails.plugin.springsecurity.controllerAnnotations.staticRules = [
 //        '/'              : ['permitAll'],
 //        '/index'         : ['permitAll'],
-//        '/index.gsp'     : ['permitAll'],
+//        '/z_bk_index.gsp'     : ['permitAll'],
 //        '/assets/**'     : ['permitAll'],
 //        '/**/js/**'      : ['permitAll'],
 //        '/**/css/**'     : ['permitAll'],

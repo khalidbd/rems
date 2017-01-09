@@ -6,8 +6,8 @@ class UrlMappings {
             }
         }
 
-//        "/"(controller: "home", action: "index")
-        "/"(view: "index")
+        "/"(controller: "home", action: "index")
+//        "/"(view: "index")
         "401"(controller: 'login', action: 'auth')      //if logout button is clicked > 401 (Unauthorized) is returned...!
 
         "404"(controller: 'throwable', action: '_404')
